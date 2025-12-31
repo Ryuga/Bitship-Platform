@@ -16,6 +16,12 @@ The project is now archived and serves as a proof of concept.
 
 ---
 
+## Project Background
+
+This codebase was originally part of Novanodes, a Discord bot hosting platform that was in production between 2020 and 2021. The platform was later shut down, and this repository contains the core deployment and management components used during that period.
+
+---
+
 ## Project Status
 
 Development has been discontinued, and the project is no longer actively maintained.
