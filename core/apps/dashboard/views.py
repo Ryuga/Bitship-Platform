@@ -29,6 +29,13 @@ status_cache = {v: k for k, v in App.STATUS_CHOICES}
 webhook = WebhookHandler(settings.WEBHOOK_ID, settings.WEBHOOK_SECRET)
 
 
+class RedirectLoginView(View):
+
+    def get(self, request):
+        if request.user.is_authenticated:
+            return redirect(to="/panel")
+        return redirect(to=oauth.discord_login_url)
+
 def media_access(request, path):
     access_granted = False
     user = request.user
@@ -52,7 +59,7 @@ class LogoutView(View):
 
     def get(self, request):
         logout(request)
-        return LoginView.as_view()(self.request)
+        return redirect(to=settings.LOGOUT_REDIRECT_URL)
 
 
 class HelpView(View):
