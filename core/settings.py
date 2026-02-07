@@ -48,7 +48,7 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'core.urls'
 ROOT_HOSTCONF = 'core.hosts'
-DEFAULT_HOST = 'www'
+DEFAULT_HOST = 'legacy'
 
 TEMPLATES = [
     {
