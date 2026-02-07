@@ -1,5 +1,7 @@
 import os
 from pathlib import Path
+
+import dj_database_url
 from decouple import config
 
 
@@ -69,16 +71,11 @@ WSGI_APPLICATION = 'core.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
+DATABASE_URL = config("DATABASE_URL")
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': config("DB_NAME"),
-        'USER': config("DB_USER"),
-        'PASSWORD': config("DB_PASS"),
-        'HOST': config("DB_HOST"),
-        'PORT': '5432',
-    },
+    'default': dj_database_url.config(default=DATABASE_URL)
 }
+
 
 
 # Password validation

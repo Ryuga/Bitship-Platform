@@ -237,7 +237,7 @@ class AppManageView(LoginRequiredMixin, View, ResponseMixin):
         app.last_deployment_timestamp = datetime.now(timezone.utc)
         app.save()
         context["app"] = app
-        bpd_api.deploy(str(app.unique_id))
+        # bpd_api.deploy(str(app.unique_id))
         return render(request, "dashboard/refresh_pages/appmanagement.html", context=context, status=200)
 
     def put(self, request):

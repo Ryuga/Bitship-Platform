@@ -18,6 +18,7 @@ class Customer(models.Model):
     applied_offers = models.ManyToManyField("Offer", blank=True)
     creation_date = models.DateTimeField(null=True, blank=True)
     joined_server = models.BooleanField(default=False)
+    first_order_amount = models.FloatField(default=0)
 
     def get_avatar_url(self):
         if self.avatar is not None:
@@ -99,6 +100,26 @@ class App(models.Model):
             return PythonAppConfig
         if self.get_stack_display() == "Node.js":
             return NodeAppConfig
+
+    @property
+    def plan(self):
+        return 1
+    @property
+    def cpu(self):
+        return 0
+    @property
+    def ram(self):
+        return 0
+    @property
+    def disk(self):
+        return 0
+    @property
+    def network(self):
+        return 0
+
+    @property
+    def glacier(self):
+        return 0
 
     @property
     def python(self):
@@ -230,6 +251,7 @@ class Setting(models.Model):
     new_offers_alert = models.BooleanField(default=False)
     display_terminated_apps = models.BooleanField(default=False)
     beta_tester = models.BooleanField(default=False)
+    dark_mode = models.BooleanField(default=False)
 
 
 def upload_location(instance, filename):
