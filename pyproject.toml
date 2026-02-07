@@ -6,7 +6,7 @@ authors = ["ryuga <vaishnav2353@gmail.com>"]
 license = "MIT LICENSE"
 
 [tool.poetry.dependencies]
-python = "^3.8"
+python = ">=3.9,<4.0"
 Django = "^4.0.1"
 gunicorn = "^20.1.0"
 psycopg2-binary = "^2.9.3"
@@ -15,6 +15,7 @@ django-ipware = "^4.0.2"
 python-decouple = "^3.5"
 django-hosts = "^5.0"
 dj-database-url = "^2.1.0"
+whitenoise = "^6.11.0"
 
 [tool.poetry.dev-dependencies]
 flake8 = "^4.0.1"
