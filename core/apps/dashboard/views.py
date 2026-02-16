@@ -266,8 +266,8 @@ class SettingView(LoginRequiredMixin, View, ResponseMixin):
             return self.json_response_500()
 
     def delete(self, request):
-        user = User.objects.get(username=request.user.username)
-        user.customer.reset()
+        # user = User.objects.get(username=request.user.username)
+        # user.customer.reset()
         logout(request)
         return self.json_response_200()
 
